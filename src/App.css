@@ -1,0 +1,8 @@
+.noteContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 40px;
+  padding: 0 40px; /* Space on left and right */
+  max-width: 1200px; /* Optional: prevent container from stretching too wide */
+  margin: auto; /* Center it */
+}
