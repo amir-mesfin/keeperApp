@@ -14,6 +14,7 @@
   padding: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease;
+  position: relative;
 }
 
 .note-card:hover {
@@ -30,4 +31,20 @@
   font-size: 15px;
   color: #444;
   line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
 }

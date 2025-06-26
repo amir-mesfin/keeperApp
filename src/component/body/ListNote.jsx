@@ -1,24 +1,23 @@
 import React from "react";
 import "./ListNote.css";
 
-function ListNote(){
-  // Dummy notes
-  const notes = [
-    { title: "Shopping List", body: "Buy milk, eggs, and bread." },
-    { title: "Homework", body: "Finish the React project." },
-    { title: "Meeting", body: "Team call at 3 PM on Zoom." }
-  ];
-
+const ListNote = ({list,onChecked}) => {
+  
   return (
     <div className="note-list">
-      {notes.map((note, index) => (
+      {list.map((not, index) => (
         <div className="note-card" key={index}>
-          <h3 className="note-title">{note.title}</h3>
-          <p className="note-body">{note.body}</p>
+          <h3 className="note-title">{not.title}</h3>
+          <p className="note-body">{not.note}</p>
+          <button 
+          key={index}
+          className="delete-button" 
+          onClick={() => onChecked(index)}
+          >Delete</button>
         </div>
       ))}
     </div>
   );
 };
 
-export default ListNote
+export default ListNote;

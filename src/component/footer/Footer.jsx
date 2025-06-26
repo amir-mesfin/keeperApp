@@ -8,7 +8,7 @@ const  current = new Date();
   
   return (
     <div className='footerStyle'>
-      <p>abushe copy right {fullYear}</p>
+      <p>Amir copy right  preserved {fullYear}</p>
     </div>
   )
 }
