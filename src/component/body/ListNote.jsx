@@ -1,6 +1,7 @@
 import React from "react";
 import "./ListNote.css";
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import Fab from '@mui/material/Fab';
 const ListNote = ({list,onChecked}) => {
   
   return (
@@ -9,11 +10,13 @@ const ListNote = ({list,onChecked}) => {
         <div className="note-card" key={index}>
           <h3 className="note-title">{not.title}</h3>
           <p className="note-body">{not.note}</p>
-          <button 
+          <Fab 
           key={index}
           className="delete-button" 
           onClick={() => onChecked(index)}
-          >Delete</button>
+          >
+           <DeleteIcon />
+          </Fab>
         </div>
       ))}
     </div>
