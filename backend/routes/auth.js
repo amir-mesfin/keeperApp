@@ -4,7 +4,7 @@ import User from '../models/User.js';
 
 const router = express.Router();
 
-router.post('/register', async (req, res) => {
+router.post('/register', async (req, res, next) => {
     try {
         const { username, password } = req.body;
         const userExists = await User.findOne({ username });
@@ -14,12 +14,11 @@ router.post('/register', async (req, res) => {
         await user.save();
         res.status(201).json({ message: 'User registered successfully' });
     } catch (err) {
-        console.error('Registration Error:', err);
-        res.status(500).json({ message: 'Registration failed', details: err.message });
+        next(err);
     }
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login', async (req, res, next) => {
     try {
         const { username, password } = req.body;
         const user = await User.findOne({ username });
@@ -37,8 +36,7 @@ router.post('/login', async (req, res) => {
 
         res.json({ user: { id: user._id, username: user.username } });
     } catch (err) {
-        console.error('Login Error:', err);
-        res.status(500).json({ message: 'Login failed', details: err.message });
+        next(err);
     }
 });
 

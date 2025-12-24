@@ -44,3 +44,13 @@ mongoose.connection.on('error', err => {
 mongoose.connection.on('connected', () => {
     console.log('Mongoose connected to DB');
 });
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+    console.error('GLOBAL ERROR CAUGHT:', err);
+    res.status(err.status || 500).json({
+        message: err.message || 'Internal Server Error',
+        stack: err.stack,
+        details: 'Caught by global error handler'
+    });
+});
